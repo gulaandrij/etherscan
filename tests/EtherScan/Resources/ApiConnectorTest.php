@@ -41,8 +41,8 @@ class ApiConnectorTest extends TestCase
                         'action' => 'ethprice',
                        ];
 
-        $this->assertInternalType('string', $resource, $resource);
-        $this->assertInternalType('array', $queryParams, $queryParams);
+        $this->assertInternalType('string', $resource);
+        $this->assertInternalType('array', $queryParams);
 
         $url = $this->conn->generateLink($this->prefix, $resource, $queryParams);
         $this->assertEquals($responceUrl, $url);
