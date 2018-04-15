@@ -16,11 +16,11 @@ use EtherScan\Resources\ApiConnector;
  */
 class EtherScan
 {
-    const PREFIX_API = 'api.';
-    const PREFIX_TESTNET = 'testnet.';
-    const PREFIX_ROPSTEN = 'ropsten.';
-    const PREFIX_RINKEBY = 'rinkeby.';
-    const PREFIX_KOVAN = 'kovan.';
+    public const PREFIX_API = 'api.';
+    public const PREFIX_TESTNET = 'testnet.';
+    public const PREFIX_ROPSTEN = 'ropsten.';
+    public const PREFIX_RINKEBY = 'rinkeby.';
+    public const PREFIX_KOVAN = 'kovan.';
 
     /**
      * @var ApiConnector
@@ -66,20 +66,5 @@ class EtherScan
     public function getAddressLink(string $address): string
     {
         return $this->apiConnector->generateLink('', AbstractHttpResource::RESOURCE_ADDRESS.'/'.$address);
-    }
-
-    /**
-     * Enlists the tasks included in the array into the eventloop and
-     * calls them together
-     *
-     * @param array $calls
-     */
-    public function callGroupAsync(array $calls): void
-    {
-        foreach ($calls as $call) {
-            $this->apiConnector->enlistRequest($call[0], $call[1] ?? null, $call[2] ?? null, $call[3] ?? null);
-        }
-
-        $this->apiConnector->getEventLoop()->run();
     }
 }

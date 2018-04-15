@@ -19,6 +19,8 @@ class Stats extends AbstractHttpResource
     /**
      * @return string
      *
+     * @throws \RuntimeException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Exception
      */
     public function getEthPrice(): string
@@ -43,6 +45,8 @@ class Stats extends AbstractHttpResource
     /**
      * @return string
      *
+     * @throws \RuntimeException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Exception
      */
     public function getEthSupply(): string

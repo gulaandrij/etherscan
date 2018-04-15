@@ -11,9 +11,9 @@ namespace EtherScan\Resources;
  */
 abstract class AbstractHttpResource
 {
-    const RESOURCE_TX = 'tx';
-    const RESOURCE_ADDRESS = 'address';
-    const RESOURCE_API = 'api';
+    public const RESOURCE_TX = 'tx';
+    public const RESOURCE_ADDRESS = 'address';
+    public const RESOURCE_API = 'api';
 
     protected $prefix;
 

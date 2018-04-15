@@ -14,14 +14,17 @@ use InvalidArgumentException;
  */
 class Account extends AbstractHttpResource
 {
-    const SORT_DESC = 'desc';
-    const SORT_ASC = 'asc';
+    public const SORT_DESC = 'desc';
+    public const SORT_ASC = 'asc';
 
     private $queryParams = ['module' => 'account'];
 
     /**
      * @param string $address
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Exception
      */
     public function getBalance(string $address): string
@@ -33,6 +36,8 @@ class Account extends AbstractHttpResource
     /**
      * @param string $address
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function getBalanceLink(string $address): string
     {
@@ -58,6 +63,9 @@ class Account extends AbstractHttpResource
     /**
      * @param array $addressList
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Exception
      */
     public function getBalances(array $addressList): string
@@ -69,6 +77,8 @@ class Account extends AbstractHttpResource
     /**
      * @param array $addressList
      * @return string
+     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function getBalancesLink(array $addressList): string
     {
@@ -98,6 +108,9 @@ class Account extends AbstractHttpResource
      * @param string $sort
      * @return string
      *
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Exception
      */
     public function getTransactions(string $address, int $page, int $pageSize, string $sort): string
@@ -113,6 +126,7 @@ class Account extends AbstractHttpResource
      * @param string $sort
      * @return string
      *
+     * @throws \Exception
      * @throws InvalidArgumentException
      */
     public function getTransactionsLink(string $address, int $page = 1, int $pageSize = 25, string $sort = Account::SORT_DESC): string

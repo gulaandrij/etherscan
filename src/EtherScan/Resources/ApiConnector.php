@@ -57,6 +57,7 @@ class ApiConnector
     /**
      * @param string $url
      * @return string
+     * @throws \RuntimeException
      * @throws Exception
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
