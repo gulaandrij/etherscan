@@ -9,6 +9,7 @@ use EtherScan\Resources\ApiConnector;
 
 /**
  * Class EtherScan
+ *
  * @package EtherScan
  *
  * The main class for using etherscan.io's api
@@ -21,7 +22,9 @@ class EtherScan
     const PREFIX_RINKEBY = 'rinkeby.';
     const PREFIX_KOVAN = 'kovan.';
 
-    /** @var ApiConnector */
+    /**
+     * @var ApiConnector
+     */
     private $apiConnector;
 
     public function __construct(ApiConnector $apiConnector)
@@ -30,6 +33,7 @@ class EtherScan
     }
 
     /**
+     * @param string $prefix
      * @return Stats
      */
     public function getStats(string $prefix = EtherScan::PREFIX_API): Stats
@@ -38,6 +42,7 @@ class EtherScan
     }
 
     /**
+     * @param string $prefix
      * @return Account
      */
     public function getAccount(string $prefix = EtherScan::PREFIX_API): Account
@@ -51,7 +56,7 @@ class EtherScan
      */
     public function getTxLink(string $hash): string
     {
-        return $this->apiConnector->generateLink('', AbstractHttpResource::RESOURCE_TX . '/' . $hash);
+        return $this->apiConnector->generateLink('', AbstractHttpResource::RESOURCE_TX.'/'.$hash);
     }
 
     /**
@@ -60,7 +65,7 @@ class EtherScan
      */
     public function getAddressLink(string $address): string
     {
-        return $this->apiConnector->generateLink('', AbstractHttpResource::RESOURCE_ADDRESS . '/' . $address);
+        return $this->apiConnector->generateLink('', AbstractHttpResource::RESOURCE_ADDRESS.'/'.$address);
     }
 
     /**
@@ -69,13 +74,12 @@ class EtherScan
      *
      * @param array $calls
      */
-    public function callGroupAsync(array $calls)
+    public function callGroupAsync(array $calls): void
     {
         foreach ($calls as $call) {
-            $this->apiConnector->enlistRequest($call[0], $call[1], $call[2], $call[3]);
+            $this->apiConnector->enlistRequest($call[0], $call[1] ?? null, $call[2] ?? null, $call[3] ?? null);
         }
 
         $this->apiConnector->getEventLoop()->run();
     }
-
 }

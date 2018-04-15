@@ -1,26 +1,36 @@
 {
-  "name": "blockchainrndhub/etherscan",
+  "name": "gulaandrij/etherscan",
   "description": "This lib is created for connecting to etherscan.io's api using php.",
-  "authors": [
-    {
-      "name": "Blockchain R&D Hub",
-      "email": "info@blockchainrndhub.com"
-    }
-  ],
   "license": "MIT",
   "minimum-stability": "stable",
   "require": {
-    "php": "^7.0",
-    "react/promise": "^2.5",
-    "react/event-loop": "^0.4.3",
-    "react/http-client": "^0.5.4"
+    "php": "^7.1",
+    "guzzlehttp/guzzle": "^6.3"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.3"
+    "phpunit/phpunit": "^6.3",
+    "symfony/var-dumper": "^4.0",
+    "squizlabs/php_codesniffer": "^3.2"
   },
   "autoload": {
     "psr-4": {
       "EtherScan\\": "src/EtherScan/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "extra": {
+    "thanks": {
+      "name": "PUBLIQNetwork/etherscan",
+      "url": "https://github.com/PUBLIQNetwork/etherscan"
     }
   }
 }

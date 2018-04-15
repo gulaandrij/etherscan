@@ -6,16 +6,20 @@ use EtherScan\Resources\AbstractHttpResource;
 
 /**
  * Class Stats
+ *
  * @package EtherScan\Modules
  *
  * Represents the stats module of the etherscan.io api
  */
 class Stats extends AbstractHttpResource
 {
+
     private $queryParams = ['module' => 'stats'];
 
     /**
      * @return string
+     *
+     * @throws \Exception
      */
     public function getEthPrice(): string
     {
@@ -26,16 +30,20 @@ class Stats extends AbstractHttpResource
     /**
      * @return string
      */
-    public function getEthPriceLink()
+    public function getEthPriceLink(): string
     {
         $finalQuery = array_merge($this->queryParams, ['action' => 'ethprice']);
         return $this->apiConnector->generateLink(
-            $this->prefix, AbstractHttpResource::RESOURCE_API, $finalQuery
+            $this->prefix,
+            AbstractHttpResource::RESOURCE_API,
+            $finalQuery
         );
     }
 
     /**
      * @return string
+     *
+     * @throws \Exception
      */
     public function getEthSupply(): string
     {
@@ -46,12 +54,13 @@ class Stats extends AbstractHttpResource
     /**
      * @return string
      */
-    public function getEthSupplyLink()
+    public function getEthSupplyLink(): string
     {
         $finalQuery = array_merge($this->queryParams, ['action' => 'ethsupply']);
         return $this->apiConnector->generateLink(
-            $this->prefix, AbstractHttpResource::RESOURCE_API, $finalQuery
+            $this->prefix,
+            AbstractHttpResource::RESOURCE_API,
+            $finalQuery
         );
     }
-
 }

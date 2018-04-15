@@ -1,15 +1,31 @@
 <?php
-require_once __DIR__ . '/../../../vendor/autoload.php'; // Autoload files using Composer autoload
+
+namespace Tests\EtherScanTest\Resources;
 
 use EtherScan\Resources\ApiConnector;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class ApiConnectorTest
+ *
+ * @package Tests\EtherScanTest\Resources
+ */
 class ApiConnectorTest extends TestCase
 {
+
     private $apiKey = 'BZ34DW4M5J6XZIQV5DWBCdddd2MJV32V955Q1H';
+
     private $prefix = 'api.';
+
     private $conn;
 
+    /**
+     * ApiConnectorTest constructor.
+     *
+     * @param null   $name
+     * @param array  $data
+     * @param string $dataName
+     */
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
@@ -18,12 +34,15 @@ class ApiConnectorTest extends TestCase
 
     public function testGenerateLink()
     {
-        $responceUrl = "https://api.etherscan.io/api?module=stats&action=ethprice&apiKey=BZ34DW4M5J6XZIQV5DWBCdddd2MJV32V955Q1H";
+        $responceUrl = 'https://api.etherscan.io/api?module=stats&action=ethprice&apiKey=BZ34DW4M5J6XZIQV5DWBCdddd2MJV32V955Q1H';
         $resource = 'api';
-        $queryParams = ['module' => 'stats', 'action' => 'ethprice'];
+        $queryParams = [
+                        'module' => 'stats',
+                        'action' => 'ethprice',
+                       ];
 
-        $this->assertTrue(is_string($resource), $resource);
-        $this->assertTrue(is_array($queryParams), $queryParams);
+        $this->assertInternalType('string', $resource, $resource);
+        $this->assertInternalType('array', $queryParams, $queryParams);
 
         $url = $this->conn->generateLink($this->prefix, $resource, $queryParams);
         $this->assertEquals($responceUrl, $url);

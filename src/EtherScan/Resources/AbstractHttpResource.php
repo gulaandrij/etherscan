@@ -4,6 +4,7 @@ namespace EtherScan\Resources;
 
 /**
  * Class AbstractHttpResource
+ *
  * @package EtherScan\Resources
  *
  * Base class for modules
@@ -16,13 +17,20 @@ abstract class AbstractHttpResource
 
     protected $prefix;
 
-    /** @var ApiConnector */
+    /**
+     * @var ApiConnector
+     */
     protected $apiConnector;
 
+    /**
+     * AbstractHttpResource constructor.
+     *
+     * @param ApiConnector $apiConnector
+     * @param string       $prefix
+     */
     public function __construct(ApiConnector $apiConnector, string $prefix)
     {
         $this->apiConnector = $apiConnector;
         $this->prefix = $prefix;
     }
-
 }
