@@ -34,17 +34,17 @@ class StatsTest extends TestCase
     {
         $responce = $this->stats->getEthPrice();
         $this->assertJson($responce);
-        $responceDecoded = json_decode($responce, true);
-        $this->assertArrayHasKey('status', $responceDecoded);
-        $this->assertArrayHasKey('message', $responceDecoded);
-        $this->assertArrayHasKey('result', $responceDecoded);
+        $responseDecoded = json_decode($responce, true);
+        $this->assertArrayHasKey('status', $responseDecoded);
+        $this->assertArrayHasKey('message', $responseDecoded);
+        $this->assertArrayHasKey('result', $responseDecoded);
 
-        $this->assertEquals('OK', $responceDecoded['message']);
-        $this->assertInternalType('array', $responceDecoded['result']);
-        $this->assertArrayHasKey('ethbtc', $responceDecoded['result']);
-        $this->assertArrayHasKey('ethbtc_timestamp', $responceDecoded['result']);
-        $this->assertArrayHasKey('ethusd', $responceDecoded['result']);
-        $this->assertArrayHasKey('ethusd_timestamp', $responceDecoded['result']);
+        $this->assertEquals('OK', $responseDecoded['message']);
+        $this->assertInternalType('array', $responseDecoded['result']);
+        $this->assertArrayHasKey('ethbtc', $responseDecoded['result']);
+        $this->assertArrayHasKey('ethbtc_timestamp', $responseDecoded['result']);
+        $this->assertArrayHasKey('ethusd', $responseDecoded['result']);
+        $this->assertArrayHasKey('ethusd_timestamp', $responseDecoded['result']);
     }
 
     public function testGetEthSupply()
