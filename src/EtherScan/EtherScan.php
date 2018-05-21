@@ -4,6 +4,7 @@ namespace EtherScan;
 
 use EtherScan\Modules\Account;
 use EtherScan\Modules\Stats;
+use EtherScan\Modules\Transaction;
 use EtherScan\Resources\AbstractHttpResource;
 use EtherScan\Resources\ApiConnector;
 
@@ -49,7 +50,16 @@ class EtherScan
     {
         return new Account($this->apiConnector, $prefix);
     }
-
+    
+    /**
+     * @param string $prefix
+     * @return Transaction
+     */
+    public function getTransaction(string $prefix = EtherScan::PREFIX_API): Transaction
+    {
+        return new Transaction($this->apiConnector, $prefix);
+    }
+    
     /**
      * @param string $hash
      * @return string
