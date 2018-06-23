@@ -28,7 +28,7 @@ class Logs extends AbstractHttpResource
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getLogs(?string $address = null, int $fromBlock = 0, $toBlock = 'latest', array $topicFilter = []): string
+    public function getLogs(string $address, int $fromBlock = 0, $toBlock = 'latest', array $topicFilter = []): string
     {
         $url = $this->getLogsLink($address, $fromBlock, $toBlock, $topicFilter);
         return $this->apiConnector->doRequest($url);
@@ -47,10 +47,6 @@ class Logs extends AbstractHttpResource
     {
         if ($address !== null && !ctype_alnum($address)) {
             throw new InvalidArgumentException('Argument address is invalid');
-        }
-
-        if (!(int) $fromBlock !== $fromBlock) {
-            throw new InvalidArgumentException('Argument fromBlock is invalid');
         }
 
         if ($toBlock !== 'latest' && (int) $toBlock !== $toBlock) {
