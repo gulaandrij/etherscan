@@ -18,6 +18,7 @@ abstract class AbstractHttpResource
     protected $prefix;
 
     /**
+     *
      * @var ApiConnector
      */
     protected $apiConnector;

@@ -17,6 +17,7 @@ class Stats extends AbstractHttpResource
     private $queryParams = ['module' => 'stats'];
 
     /**
+     *
      * @return string
      *
      * @throws \RuntimeException
@@ -30,6 +31,7 @@ class Stats extends AbstractHttpResource
     }
 
     /**
+     *
      * @return string
      */
     public function getEthPriceLink(): string
@@ -43,6 +45,7 @@ class Stats extends AbstractHttpResource
     }
 
     /**
+     *
      * @return string
      *
      * @throws \RuntimeException
@@ -56,6 +59,7 @@ class Stats extends AbstractHttpResource
     }
 
     /**
+     *
      * @return string
      */
     public function getEthSupplyLink(): string

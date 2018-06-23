@@ -16,6 +16,7 @@ class ApiConnector
 {
 
     /**
+     *
      * @var string
      */
     private $apiKey;
@@ -31,12 +32,13 @@ class ApiConnector
     }
 
     /**
-     * @param string     $prefix
-     * @param string     $resource
-     * @param array|null $queryParams
+     *
+     * @param  string     $prefix
+     * @param  string     $resource
+     * @param  array|null $queryParams
      * @return string
      */
-    public function generateLink(string $prefix, string $resource, array $queryParams = null): string
+    public function generateLink(string $prefix, string $resource, ?array $queryParams = null): string
     {
         $query = '';
         if (\is_array($queryParams) && \count($queryParams) > 0) {
@@ -55,7 +57,8 @@ class ApiConnector
     }
 
     /**
-     * @param string $url
+     *
+     * @param  string $url
      * @return string
      * @throws \RuntimeException
      * @throws Exception

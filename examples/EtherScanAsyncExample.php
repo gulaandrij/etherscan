@@ -1,7 +1,6 @@
 <?php
 
 use EtherScan\EtherScan;
-use EtherScan\Modules\Account;
 use EtherScan\Resources\ApiConnector;
 
 require __DIR__.'/../vendor/autoload.php';

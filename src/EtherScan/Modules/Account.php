@@ -20,7 +20,8 @@ class Account extends AbstractHttpResource
     private $queryParams = ['module' => 'account'];
 
     /**
-     * @param string $address
+     *
+     * @param  string $address
      * @return string
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
@@ -34,7 +35,8 @@ class Account extends AbstractHttpResource
     }
 
     /**
-     * @param string $address
+     *
+     * @param  string $address
      * @return string
      * @throws \InvalidArgumentException
      * @throws \Exception
@@ -61,7 +63,8 @@ class Account extends AbstractHttpResource
     }
 
     /**
-     * @param array $addressList
+     *
+     * @param  array $addressList
      * @return string
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
@@ -75,7 +78,8 @@ class Account extends AbstractHttpResource
     }
 
     /**
-     * @param array $addressList
+     *
+     * @param  array $addressList
      * @return string
      * @throws \InvalidArgumentException
      * @throws \Exception
@@ -102,10 +106,11 @@ class Account extends AbstractHttpResource
     }
 
     /**
-     * @param string $address
-     * @param int    $page
-     * @param int    $pageSize
-     * @param string $sort
+     *
+     * @param  string $address
+     * @param  int    $page
+     * @param  int    $pageSize
+     * @param  string $sort
      * @return string
      *
      * @throws \InvalidArgumentException
@@ -120,10 +125,11 @@ class Account extends AbstractHttpResource
     }
 
     /**
-     * @param string $address
-     * @param int    $page
-     * @param int    $pageSize
-     * @param string $sort
+     *
+     * @param  string $address
+     * @param  int    $page
+     * @param  int    $pageSize
+     * @param  string $sort
      * @return string
      *
      * @throws \Exception

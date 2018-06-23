@@ -3,6 +3,7 @@
 namespace EtherScan;
 
 use EtherScan\Modules\Account;
+use EtherScan\Modules\Logs;
 use EtherScan\Modules\Stats;
 use EtherScan\Modules\Transaction;
 use EtherScan\Resources\AbstractHttpResource;
@@ -24,17 +25,24 @@ class EtherScan
     public const PREFIX_KOVAN = 'kovan.';
 
     /**
+     *
      * @var ApiConnector
      */
     private $apiConnector;
 
+    /**
+     * EtherScan constructor.
+     *
+     * @param ApiConnector $apiConnector
+     */
     public function __construct(ApiConnector $apiConnector)
     {
         $this->apiConnector = $apiConnector;
     }
 
     /**
-     * @param string $prefix
+     *
+     * @param  string $prefix
      * @return Stats
      */
     public function getStats(string $prefix = EtherScan::PREFIX_API): Stats
@@ -43,25 +51,28 @@ class EtherScan
     }
 
     /**
-     * @param string $prefix
+     *
+     * @param  string $prefix
      * @return Account
      */
     public function getAccount(string $prefix = EtherScan::PREFIX_API): Account
     {
         return new Account($this->apiConnector, $prefix);
     }
-    
+
     /**
-     * @param string $prefix
+     *
+     * @param  string $prefix
      * @return Transaction
      */
     public function getTransaction(string $prefix = EtherScan::PREFIX_API): Transaction
     {
         return new Transaction($this->apiConnector, $prefix);
     }
-    
+
     /**
-     * @param string $hash
+     *
+     * @param  string $hash
      * @return string
      */
     public function getTxLink(string $hash): string
@@ -70,11 +81,22 @@ class EtherScan
     }
 
     /**
-     * @param string $address
+     *
+     * @param  string $address
      * @return string
      */
     public function getAddressLink(string $address): string
     {
         return $this->apiConnector->generateLink('', AbstractHttpResource::RESOURCE_ADDRESS.'/'.$address);
+    }
+
+    /**
+     *
+     * @param  string $prefix
+     * @return Logs
+     */
+    public function getLogs(string $prefix = EtherScan::PREFIX_API): Logs
+    {
+        return new Logs($this->apiConnector, $prefix);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Tests\EtherScanTest\Modules;
 
-use EtherScan\EtherScan;
 use EtherScan\Modules\Stats;
 use EtherScan\Resources\ApiConnector;
 use PHPUnit\Framework\TestCase;

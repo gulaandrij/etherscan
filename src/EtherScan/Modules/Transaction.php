@@ -22,7 +22,7 @@ class Transaction extends AbstractHttpResource
      * Check Contract Execution Status (if there was an error during contract execution)
      * "isError":"0" = Pass , "isError":"1" = Error during Contract Execution
      *
-     * @param string $txhash
+     * @param  string $txhash
      * @return string
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -32,12 +32,12 @@ class Transaction extends AbstractHttpResource
         $finalQuery = array_merge(
             $this->queryParams,
             [
-                'action'  => 'getstatus',
-                'txhash' => $txhash,
+             'action' => 'getstatus',
+             'txhash' => $txhash,
             ]
         );
 
-        $url =  $this->apiConnector->generateLink(
+        $url = $this->apiConnector->generateLink(
             $this->prefix,
             AbstractHttpResource::RESOURCE_API,
             $finalQuery
@@ -50,7 +50,7 @@ class Transaction extends AbstractHttpResource
      * Check Transaction Receipt Status (Only applicable for Post Byzantium fork transactions)
      * status: 0 = Fail, 1 = Pass. Will return null/empty value for pre-byzantium fork
      *
-     * @param string $txhash
+     * @param  string $txhash
      * @return string
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -60,12 +60,12 @@ class Transaction extends AbstractHttpResource
         $finalQuery = array_merge(
             $this->queryParams,
             [
-                'action'  => 'gettxreceiptstatus',
-                'txhash' => $txhash,
+             'action' => 'gettxreceiptstatus',
+             'txhash' => $txhash,
             ]
         );
 
-        $url =  $this->apiConnector->generateLink(
+        $url = $this->apiConnector->generateLink(
             $this->prefix,
             AbstractHttpResource::RESOURCE_API,
             $finalQuery
